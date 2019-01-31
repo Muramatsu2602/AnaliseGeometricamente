@@ -10,20 +10,19 @@ using System.Windows.Forms;
 
 namespace AnaliseGeometricamente
 {
-    public partial class Menu : MaterialSkin.Controls.MaterialForm
+    public partial class Menu : Form
     {
-        public Menu()
+        public Menu(Image imagem, string imgName)
         {
             InitializeComponent();
-            //listBox1.AutoSize = true;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            picGabarito.Image = imagem;
+            // MessageBox.Show(imgName);
+            lblNomeImagem.Text = imgName;
+
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
+        private void Menu_Load(object sender, EventArgs e)
         {
 
         }
