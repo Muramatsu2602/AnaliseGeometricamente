@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace AnaliseGeometricamente
 {
-    public partial class Form1 : Form
+    public partial class Menu : MaterialSkin.Controls.MaterialForm
     {
-        public Form1()
+        public Menu()
         {
             InitializeComponent();
+            //listBox1.AutoSize = true;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
