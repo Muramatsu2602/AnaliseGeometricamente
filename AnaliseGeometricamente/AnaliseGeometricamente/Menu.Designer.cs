@@ -37,10 +37,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.picGabarito = new System.Windows.Forms.PictureBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAbreVideos = new System.Windows.Forms.Button();
+            this.btnAbreAudio = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReverse = new System.Windows.Forms.PictureBox();
+            this.btnFastFoward = new System.Windows.Forms.PictureBox();
             this.btnPause = new System.Windows.Forms.PictureBox();
             this.btnParar = new System.Windows.Forms.PictureBox();
             this.btnNovaAnalise = new System.Windows.Forms.Button();
@@ -52,6 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGabarito)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnReverse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFastFoward)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPause)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnParar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
@@ -97,7 +101,7 @@
             this.lblNomeAudio.ForeColor = System.Drawing.Color.Blue;
             this.lblNomeAudio.Location = new System.Drawing.Point(421, 45);
             this.lblNomeAudio.Name = "lblNomeAudio";
-            this.lblNomeAudio.Size = new System.Drawing.Size(494, 23);
+            this.lblNomeAudio.Size = new System.Drawing.Size(476, 23);
             this.lblNomeAudio.TabIndex = 3;
             this.lblNomeAudio.Text = "nome";
             // 
@@ -141,34 +145,42 @@
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(12, 439);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(335, 277);
+            this.listBox1.Size = new System.Drawing.Size(335, 264);
             this.listBox1.TabIndex = 7;
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
             // 
-            // button1
+            // btnAbreVideos
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(272, 416);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Procurar...";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAbreVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAbreVideos.Enabled = false;
+            this.btnAbreVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbreVideos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbreVideos.Location = new System.Drawing.Point(242, 412);
+            this.btnAbreVideos.Name = "btnAbreVideos";
+            this.btnAbreVideos.Size = new System.Drawing.Size(105, 27);
+            this.btnAbreVideos.TabIndex = 8;
+            this.btnAbreVideos.Text = "Procurar...";
+            this.btnAbreVideos.UseVisualStyleBackColor = false;
+            this.btnAbreVideos.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnAbreAudio
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(921, 46);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Procurar...";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnAbreAudio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbreAudio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAbreAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbreAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAbreAudio.Location = new System.Drawing.Point(903, 42);
+            this.btnAbreAudio.Name = "btnAbreAudio";
+            this.btnAbreAudio.Size = new System.Drawing.Size(93, 27);
+            this.btnAbreAudio.TabIndex = 9;
+            this.btnAbreAudio.Text = "Procurar...";
+            this.btnAbreAudio.UseVisualStyleBackColor = false;
+            this.btnAbreAudio.Click += new System.EventHandler(this.btnAbreAudio_Click);
             // 
             // label2
             // 
@@ -184,6 +196,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnReverse);
+            this.groupBox1.Controls.Add(this.btnFastFoward);
             this.groupBox1.Controls.Add(this.btnPause);
             this.groupBox1.Controls.Add(this.btnParar);
             this.groupBox1.Controls.Add(this.btnNovaAnalise);
@@ -197,6 +211,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Funções Globais";
             // 
+            // btnReverse
+            // 
+            this.btnReverse.BackColor = System.Drawing.Color.White;
+            this.btnReverse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReverse.Image = ((System.Drawing.Image)(resources.GetObject("btnReverse.Image")));
+            this.btnReverse.Location = new System.Drawing.Point(216, 31);
+            this.btnReverse.Name = "btnReverse";
+            this.btnReverse.Size = new System.Drawing.Size(40, 40);
+            this.btnReverse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnReverse.TabIndex = 7;
+            this.btnReverse.TabStop = false;
+            this.btnReverse.Click += new System.EventHandler(this.btnReverse_Click);
+            // 
+            // btnFastFoward
+            // 
+            this.btnFastFoward.BackColor = System.Drawing.Color.White;
+            this.btnFastFoward.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFastFoward.Image = ((System.Drawing.Image)(resources.GetObject("btnFastFoward.Image")));
+            this.btnFastFoward.Location = new System.Drawing.Point(279, 31);
+            this.btnFastFoward.Name = "btnFastFoward";
+            this.btnFastFoward.Size = new System.Drawing.Size(40, 40);
+            this.btnFastFoward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFastFoward.TabIndex = 6;
+            this.btnFastFoward.TabStop = false;
+            this.btnFastFoward.Visible = false;
+            this.btnFastFoward.Click += new System.EventHandler(this.btnFastFoward_Click);
+            // 
             // btnPause
             // 
             this.btnPause.BackColor = System.Drawing.Color.White;
@@ -208,6 +249,7 @@
             this.btnPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnPause.TabIndex = 5;
             this.btnPause.TabStop = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnParar
             // 
@@ -220,6 +262,7 @@
             this.btnParar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnParar.TabIndex = 4;
             this.btnParar.TabStop = false;
+            this.btnParar.Click += new System.EventHandler(this.btnParar_Click);
             // 
             // btnNovaAnalise
             // 
@@ -232,6 +275,7 @@
             this.btnNovaAnalise.TabIndex = 3;
             this.btnNovaAnalise.Text = "Nova Análise";
             this.btnNovaAnalise.UseVisualStyleBackColor = false;
+            this.btnNovaAnalise.Click += new System.EventHandler(this.btnNovaAnalise_Click);
             // 
             // btnPlay
             // 
@@ -244,6 +288,7 @@
             this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnPlay.TabIndex = 0;
             this.btnPlay.TabStop = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // label4
             // 
@@ -291,8 +336,8 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAbreAudio);
+            this.Controls.Add(this.btnAbreVideos);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.picGabarito);
             this.Controls.Add(this.lblNomeVideo);
@@ -303,12 +348,15 @@
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Geometricamente - Análise";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGabarito)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnReverse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFastFoward)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPause)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnParar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).EndInit();
@@ -326,17 +374,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picGabarito;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAbreVideos;
+        private System.Windows.Forms.Button btnAbreAudio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox btnPlay;
-        private System.Windows.Forms.PictureBox btnPause;
-        private System.Windows.Forms.PictureBox btnParar;
         private System.Windows.Forms.Button btnNovaAnalise;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblNomeImagem;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox btnPause;
+        private System.Windows.Forms.PictureBox btnFastFoward;
+        private System.Windows.Forms.PictureBox btnParar;
+        private System.Windows.Forms.PictureBox btnReverse;
     }
 }
 

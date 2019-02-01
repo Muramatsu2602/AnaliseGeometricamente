@@ -108,20 +108,20 @@ namespace AnaliseGeometricamente
             return arquivosEncontrados.ToArray();
         }
 
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Deseja mesmo sair?", "GEOMETRICAMENTE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                this.Close();
-            }
-        }
+
         public string TestaPendrive()
         {
             return Environment.CurrentDirectory;
         }
 
-
+        private void frmEscolhePasta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Deseja mesmo sair?", "GEOMETRICAMENTE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }
