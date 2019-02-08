@@ -42,11 +42,7 @@ namespace AnaliseGeometricamente
 
                 foreach (string file in files)
                 {
-                    // Como incluir somente videos relacionados a tal desenho?????
-                    //if (Path.GetFileName(file).Contains(imgNameCorrigida) && Path.GetFileName(file).Contains(".mp4"))
-                    //{
-                    //    listBox1.Items.Add(Path.GetFileName(file));
-                    //}
+
 
                     if (Path.GetFileName(file).Contains(".mp4"))
                     {
@@ -129,48 +125,69 @@ namespace AnaliseGeometricamente
         bool pp;
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            /*
+            ControleSimultaneo();
+
             if (pp)
             {
                 axWindowsMediaPlayer1.Ctlcontrols.play();
                 axWindowsMediaPlayer2.Ctlcontrols.play();
                 pp = false;
-                btnPlay.Image = Image.FromFile("Play.png");
+                btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Pause.png");
+                btnPlay.BorderStyle = BorderStyle.Fixed3D;
 
             }
             else if (!pp)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.play();
-                axWindowsMediaPlayer2.Ctlcontrols.play();
-                btnPlay.Image = Image.FromFile("Pause.png");
+                axWindowsMediaPlayer1.Ctlcontrols.pause();
+                axWindowsMediaPlayer2.Ctlcontrols.pause();
+                btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Play.png");
                 pp = true;
-            }*/
+                btnPlay.BorderStyle = BorderStyle.None;
 
-            axWindowsMediaPlayer1.Ctlcontrols.play();
-            axWindowsMediaPlayer2.Ctlcontrols.play();
+            }
 
+            //axWindowsMediaPlayer1.Ctlcontrols.play();
+            //axWindowsMediaPlayer2.Ctlcontrols.play();
+        }
+
+        private void ControleSimultaneo()
+        {
+            try { if (axWindowsMediaPlayer2.currentMedia.sourceURL == null) { } }
+            catch (Exception er)
+            {
+                MessageBox.Show("Função Inválida!\n Arquivo de áudio (.mp3) não selecionado.");
+            }
+            try { if (axWindowsMediaPlayer1.currentMedia.sourceURL == null) { } }
+            catch (Exception er)
+            {
+                MessageBox.Show("Função Inválida!\n Arquivo de vídeo (.mp4) não selecionado.");
+            }
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
+            ControleSimultaneo();
             axWindowsMediaPlayer1.Ctlcontrols.pause();
             axWindowsMediaPlayer2.Ctlcontrols.pause();
         }
 
         private void btnParar_Click(object sender, EventArgs e)
         {
+            ControleSimultaneo();
             axWindowsMediaPlayer1.Ctlcontrols.stop();
             axWindowsMediaPlayer2.Ctlcontrols.stop();
         }
 
         private void btnFastFoward_Click(object sender, EventArgs e)
         {
+            ControleSimultaneo();
             axWindowsMediaPlayer1.Ctlcontrols.fastForward();
             axWindowsMediaPlayer2.Ctlcontrols.fastForward();
         }
 
         private void btnReverse_Click(object sender, EventArgs e)
         {
+            ControleSimultaneo();
             axWindowsMediaPlayer1.Ctlcontrols.fastReverse();
             axWindowsMediaPlayer2.Ctlcontrols.fastReverse();
         }
@@ -193,6 +210,29 @@ namespace AnaliseGeometricamente
             btnAbreVideos.Enabled = true;
         }
 
+        private void picGabarito_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Deseja escolher uma imagem? \n Isso resultará no fechamento da análise atual", "Nova Análise", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
 
+            {
+                //frmEscolhePasta f = new frmEscolhePasta();
+                //f.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void picGabarito_MouseHover(object sender, EventArgs e)
+        {
+            picGabarito.BorderStyle = BorderStyle.Fixed3D;
+            picGabarito.BackColor = Color.LightGray;
+        }
+
+        private void picGabarito_MouseLeave(object sender, EventArgs e)
+        {
+            picGabarito.BackColor = Color.Transparent;
+            picGabarito.BorderStyle = BorderStyle.None;
+        }
     }
 }

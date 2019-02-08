@@ -88,9 +88,9 @@
             // 
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(352, 45);
+            this.label1.Location = new System.Drawing.Point(359, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 23);
+            this.label1.Size = new System.Drawing.Size(63, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Áudio: ";
             // 
@@ -99,7 +99,7 @@
             this.lblNomeAudio.BackColor = System.Drawing.Color.White;
             this.lblNomeAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeAudio.ForeColor = System.Drawing.Color.Blue;
-            this.lblNomeAudio.Location = new System.Drawing.Point(421, 45);
+            this.lblNomeAudio.Location = new System.Drawing.Point(425, 45);
             this.lblNomeAudio.Name = "lblNomeAudio";
             this.lblNomeAudio.Size = new System.Drawing.Size(476, 23);
             this.lblNomeAudio.TabIndex = 3;
@@ -114,7 +114,7 @@
             this.lblNomeVideo.ForeColor = System.Drawing.Color.Blue;
             this.lblNomeVideo.Location = new System.Drawing.Point(425, 125);
             this.lblNomeVideo.Name = "lblNomeVideo";
-            this.lblNomeVideo.Size = new System.Drawing.Size(587, 23);
+            this.lblNomeVideo.Size = new System.Drawing.Size(571, 23);
             this.lblNomeVideo.TabIndex = 5;
             this.lblNomeVideo.Text = "nome";
             // 
@@ -133,13 +133,16 @@
             // picGabarito
             // 
             this.picGabarito.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picGabarito.Cursor = System.Windows.Forms.Cursors.No;
+            this.picGabarito.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picGabarito.Location = new System.Drawing.Point(12, 71);
             this.picGabarito.Name = "picGabarito";
             this.picGabarito.Size = new System.Drawing.Size(335, 335);
             this.picGabarito.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picGabarito.TabIndex = 6;
             this.picGabarito.TabStop = false;
+            this.picGabarito.Click += new System.EventHandler(this.picGabarito_Click);
+            this.picGabarito.MouseLeave += new System.EventHandler(this.picGabarito_MouseLeave);
+            this.picGabarito.MouseHover += new System.EventHandler(this.picGabarito_MouseHover);
             // 
             // listBox1
             // 
@@ -174,7 +177,7 @@
             this.btnAbreAudio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnAbreAudio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbreAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAbreAudio.Location = new System.Drawing.Point(903, 42);
+            this.btnAbreAudio.Location = new System.Drawing.Point(903, 44);
             this.btnAbreAudio.Name = "btnAbreAudio";
             this.btnAbreAudio.Size = new System.Drawing.Size(93, 27);
             this.btnAbreAudio.TabIndex = 9;
@@ -216,7 +219,7 @@
             this.btnReverse.BackColor = System.Drawing.Color.White;
             this.btnReverse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReverse.Image = ((System.Drawing.Image)(resources.GetObject("btnReverse.Image")));
-            this.btnReverse.Location = new System.Drawing.Point(216, 31);
+            this.btnReverse.Location = new System.Drawing.Point(26, 32);
             this.btnReverse.Name = "btnReverse";
             this.btnReverse.Size = new System.Drawing.Size(40, 40);
             this.btnReverse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -229,13 +232,12 @@
             this.btnFastFoward.BackColor = System.Drawing.Color.White;
             this.btnFastFoward.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFastFoward.Image = ((System.Drawing.Image)(resources.GetObject("btnFastFoward.Image")));
-            this.btnFastFoward.Location = new System.Drawing.Point(279, 31);
+            this.btnFastFoward.Location = new System.Drawing.Point(143, 31);
             this.btnFastFoward.Name = "btnFastFoward";
             this.btnFastFoward.Size = new System.Drawing.Size(40, 40);
             this.btnFastFoward.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnFastFoward.TabIndex = 6;
             this.btnFastFoward.TabStop = false;
-            this.btnFastFoward.Visible = false;
             this.btnFastFoward.Click += new System.EventHandler(this.btnFastFoward_Click);
             // 
             // btnPause
@@ -243,12 +245,13 @@
             this.btnPause.BackColor = System.Drawing.Color.White;
             this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPause.Image = ((System.Drawing.Image)(resources.GetObject("btnPause.Image")));
-            this.btnPause.Location = new System.Drawing.Point(84, 31);
+            this.btnPause.Location = new System.Drawing.Point(304, 32);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(40, 40);
             this.btnPause.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnPause.TabIndex = 5;
             this.btnPause.TabStop = false;
+            this.btnPause.Visible = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnParar
@@ -256,7 +259,7 @@
             this.btnParar.BackColor = System.Drawing.Color.White;
             this.btnParar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnParar.Image = ((System.Drawing.Image)(resources.GetObject("btnParar.Image")));
-            this.btnParar.Location = new System.Drawing.Point(151, 31);
+            this.btnParar.Location = new System.Drawing.Point(202, 31);
             this.btnParar.Name = "btnParar";
             this.btnParar.Size = new System.Drawing.Size(40, 40);
             this.btnParar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -268,8 +271,10 @@
             // 
             this.btnNovaAnalise.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNovaAnalise.BackColor = System.Drawing.Color.White;
+            this.btnNovaAnalise.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNovaAnalise.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovaAnalise.Location = new System.Drawing.Point(474, 31);
+            this.btnNovaAnalise.ForeColor = System.Drawing.Color.Blue;
+            this.btnNovaAnalise.Location = new System.Drawing.Point(475, 31);
             this.btnNovaAnalise.Name = "btnNovaAnalise";
             this.btnNovaAnalise.Size = new System.Drawing.Size(147, 40);
             this.btnNovaAnalise.TabIndex = 3;
@@ -282,7 +287,7 @@
             this.btnPlay.BackColor = System.Drawing.Color.White;
             this.btnPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPlay.Image = ((System.Drawing.Image)(resources.GetObject("btnPlay.Image")));
-            this.btnPlay.Location = new System.Drawing.Point(19, 31);
+            this.btnPlay.Location = new System.Drawing.Point(84, 32);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(40, 40);
             this.btnPlay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -295,11 +300,11 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(12, 2);
+            this.label4.Location = new System.Drawing.Point(-1, 2);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(984, 40);
+            this.label4.Size = new System.Drawing.Size(1013, 39);
             this.label4.TabIndex = 12;
             this.label4.Text = "Geometricamente - Análise ";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -346,6 +351,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.axWindowsMediaPlayer2);
             this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Geometricamente - Análise";
