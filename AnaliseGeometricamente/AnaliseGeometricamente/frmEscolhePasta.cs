@@ -16,15 +16,15 @@ namespace AnaliseGeometricamente
 
         }
 
-        private void frmEscolhePasta_Load(object sender, EventArgs e)
+        private void FrmEscolhePasta_Load(object sender, EventArgs e)
         {
 
-            ExibeArquivosDaPastaSelecionada(TestaPendrive());
-            txtDiretorio.Text = TestaPendrive();
+            ExibeArquivosDaPastaSelecionada(TestaPendrive() + "//imagens");
+            txtDiretorio.Text = TestaPendrive() + "\\imagens";
         }
 
         FolderBrowserDialog fbd1 = new FolderBrowserDialog();
-        private void btnSelecionarPasta_Click(object sender, EventArgs e)
+        private void BtnSelecionarPasta_Click(object sender, EventArgs e)
         {
             try
             {
@@ -97,13 +97,21 @@ namespace AnaliseGeometricamente
 
         }
 
-        public static string[] GetArquivosDaPasta(String pastaRaiz, String[] filtros, bool isRecursiva)
+        public  string[] GetArquivosDaPasta(String pastaRaiz, String[] filtros, bool isRecursiva)
         {
             List<String> arquivosEncontrados = new List<String>();
             SearchOption opcaoDeBusca = isRecursiva ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
-            foreach (var filtro in filtros)
+            try
             {
-                arquivosEncontrados.AddRange(Directory.GetFiles(pastaRaiz, String.Format("*.{0}", filtro), opcaoDeBusca));
+                foreach (var filtro in filtros)
+                {
+                    arquivosEncontrados.AddRange(Directory.GetFiles(pastaRaiz, String.Format("*.{0}", filtro), opcaoDeBusca));
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                MessageBox.Show("A pasta Imagens não fora encontrada no local padrão! Mais detalhes \n" + ex.Message);
+                btnSelecionarPasta.PerformClick();
             }
             return arquivosEncontrados.ToArray();
         }
@@ -114,7 +122,8 @@ namespace AnaliseGeometricamente
             return Environment.CurrentDirectory;
         }
 
-        private void frmEscolhePasta_FormClosing(object sender, FormClosingEventArgs e)
+
+        private void FrmEscolhePasta_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dr = new DialogResult();
             dr = MessageBox.Show("Deseja mesmo sair?", "GEOMETRICAMENTE", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

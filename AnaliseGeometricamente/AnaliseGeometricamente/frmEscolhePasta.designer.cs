@@ -73,14 +73,14 @@
             // 
             // btnSelecionarPasta
             // 
-            this.btnSelecionarPasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarPasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelecionarPasta.Location = new System.Drawing.Point(53, 7);
             this.btnSelecionarPasta.Name = "btnSelecionarPasta";
             this.btnSelecionarPasta.Size = new System.Drawing.Size(99, 29);
             this.btnSelecionarPasta.TabIndex = 0;
             this.btnSelecionarPasta.Text = "Selecionar Pasta";
             this.btnSelecionarPasta.UseVisualStyleBackColor = true;
-            this.btnSelecionarPasta.Click += new System.EventHandler(this.btnSelecionarPasta_Click);
+            this.btnSelecionarPasta.Click += new System.EventHandler(this.BtnSelecionarPasta_Click);
             // 
             // panel1
             // 
@@ -104,7 +104,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.btnSelecionarPasta_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.BtnSelecionarPasta_Click);
             // 
             // frmEscolhePasta
             // 
@@ -118,8 +118,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEscolhePasta_FormClosing);
-            this.Load += new System.EventHandler(this.frmEscolhePasta_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEscolhePasta_FormClosing);
+            this.Load += new System.EventHandler(this.FrmEscolhePasta_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

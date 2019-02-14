@@ -84,7 +84,7 @@ namespace AnaliseGeometricamente
 
 
 
-        private void btnNovaAnalise_Click(object sender, EventArgs e)
+        private void BtnNovaAnalise_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
             dr = MessageBox.Show("Deseja Inciar uma nova análise? \n Isso resultará no fechamento da análise atual", "Nova Análise", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -107,7 +107,7 @@ namespace AnaliseGeometricamente
             }
         }
 
-        private void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
 
             int index = this.listBox1.IndexFromPoint(e.Location);
@@ -115,7 +115,7 @@ namespace AnaliseGeometricamente
             if (index != ListBox.NoMatches)
             {
 
-                axWindowsMediaPlayer1.URL = pastao + "\\" + nome;
+                playerVideo.URL = pastao + "\\" + nome;
                 lblNomeVideo.Text = nome;
                 //axWindowsMediaPlayer1.Ctlcontrols.play();
             }
@@ -127,10 +127,12 @@ namespace AnaliseGeometricamente
         {
             ControleSimultaneo();
 
+
+
             if (pp)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.play();
-                axWindowsMediaPlayer2.Ctlcontrols.play();
+                playerVideo.Ctlcontrols.play();
+                playerAudio.Ctlcontrols.play();
                 pp = false;
                 btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Pause.png");
                 btnPlay.BorderStyle = BorderStyle.Fixed3D;
@@ -138,8 +140,8 @@ namespace AnaliseGeometricamente
             }
             else if (!pp)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.pause();
-                axWindowsMediaPlayer2.Ctlcontrols.pause();
+                playerVideo.Ctlcontrols.pause();
+                playerAudio.Ctlcontrols.pause();
                 btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Play.png");
                 pp = true;
                 btnPlay.BorderStyle = BorderStyle.None;
@@ -152,13 +154,13 @@ namespace AnaliseGeometricamente
 
         private void ControleSimultaneo()
         {
-            try { if (axWindowsMediaPlayer2.currentMedia.sourceURL == null) { } }
-            catch (Exception er)
+            try { if (playerAudio.currentMedia.sourceURL == null) { } }
+            catch (Exception)
             {
                 MessageBox.Show("Função Inválida!\n Arquivo de áudio (.mp3) não selecionado.");
             }
-            try { if (axWindowsMediaPlayer1.currentMedia.sourceURL == null) { } }
-            catch (Exception er)
+            try { if (playerVideo.currentMedia.sourceURL == null) { } }
+            catch (Exception)
             {
                 MessageBox.Show("Função Inválida!\n Arquivo de vídeo (.mp4) não selecionado.");
             }
@@ -167,29 +169,29 @@ namespace AnaliseGeometricamente
         private void btnPause_Click(object sender, EventArgs e)
         {
             ControleSimultaneo();
-            axWindowsMediaPlayer1.Ctlcontrols.pause();
-            axWindowsMediaPlayer2.Ctlcontrols.pause();
+            playerVideo.Ctlcontrols.pause();
+            playerAudio.Ctlcontrols.pause();
         }
 
         private void btnParar_Click(object sender, EventArgs e)
         {
             ControleSimultaneo();
-            axWindowsMediaPlayer1.Ctlcontrols.stop();
-            axWindowsMediaPlayer2.Ctlcontrols.stop();
+            playerVideo.Ctlcontrols.stop();
+            playerAudio.Ctlcontrols.stop();
         }
 
         private void btnFastFoward_Click(object sender, EventArgs e)
         {
             ControleSimultaneo();
-            axWindowsMediaPlayer1.Ctlcontrols.fastForward();
-            axWindowsMediaPlayer2.Ctlcontrols.fastForward();
+            playerVideo.Ctlcontrols.fastForward();
+            playerAudio.Ctlcontrols.fastForward();
         }
 
         private void btnReverse_Click(object sender, EventArgs e)
         {
             ControleSimultaneo();
-            axWindowsMediaPlayer1.Ctlcontrols.fastReverse();
-            axWindowsMediaPlayer2.Ctlcontrols.fastReverse();
+            playerVideo.Ctlcontrols.fastReverse();
+            playerAudio.Ctlcontrols.fastReverse();
         }
         #endregion
 
@@ -202,10 +204,10 @@ namespace AnaliseGeometricamente
             ofd.Filter = "mp3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                axWindowsMediaPlayer2.URL = ofd.FileName;
+                playerAudio.URL = ofd.FileName;
                 string[] split = ofd.FileName.Split('_');
                 lblNomeAudio.Text = split[3];
-                // axWindowsMediaPlayer2.Ctlcontrols.play();
+                 //playerAudio.Ctlcontrols.stop();
             }
             btnAbreVideos.Enabled = true;
         }

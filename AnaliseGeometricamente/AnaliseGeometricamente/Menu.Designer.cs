@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.playerVideo = new AxWMPLib.AxWindowsMediaPlayer();
+            this.playerAudio = new AxWMPLib.AxWindowsMediaPlayer();
             this.label1 = new System.Windows.Forms.Label();
             this.lblNomeAudio = new System.Windows.Forms.Label();
             this.lblNomeVideo = new System.Windows.Forms.Label();
@@ -50,8 +50,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblNomeImagem = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerAudio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGabarito)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnReverse)).BeginInit();
@@ -61,28 +61,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPlay)).BeginInit();
             this.SuspendLayout();
             // 
-            // axWindowsMediaPlayer1
+            // playerVideo
             // 
-            this.axWindowsMediaPlayer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.playerVideo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(356, 149);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(640, 480);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
+            this.playerVideo.Enabled = true;
+            this.playerVideo.Location = new System.Drawing.Point(356, 149);
+            this.playerVideo.Name = "playerVideo";
+            this.playerVideo.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("playerVideo.OcxState")));
+            this.playerVideo.Size = new System.Drawing.Size(640, 480);
+            this.playerVideo.TabIndex = 0;
             // 
-            // axWindowsMediaPlayer2
+            // playerAudio
             // 
-            this.axWindowsMediaPlayer2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.playerAudio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(356, 71);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(640, 46);
-            this.axWindowsMediaPlayer2.TabIndex = 1;
+            this.playerAudio.Enabled = true;
+            this.playerAudio.Location = new System.Drawing.Point(356, 71);
+            this.playerAudio.Name = "playerAudio";
+            this.playerAudio.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("playerAudio.OcxState")));
+            this.playerAudio.Size = new System.Drawing.Size(640, 46);
+            this.playerAudio.TabIndex = 1;
             // 
             // label1
             // 
@@ -112,7 +112,7 @@
             this.lblNomeVideo.BackColor = System.Drawing.Color.White;
             this.lblNomeVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNomeVideo.ForeColor = System.Drawing.Color.Blue;
-            this.lblNomeVideo.Location = new System.Drawing.Point(425, 125);
+            this.lblNomeVideo.Location = new System.Drawing.Point(428, 123);
             this.lblNomeVideo.Name = "lblNomeVideo";
             this.lblNomeVideo.Size = new System.Drawing.Size(571, 23);
             this.lblNomeVideo.TabIndex = 5;
@@ -155,7 +155,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(335, 264);
             this.listBox1.TabIndex = 7;
-            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseDoubleClick);
+            this.listBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBox1_MouseDoubleClick);
             // 
             // btnAbreVideos
             // 
@@ -280,7 +280,7 @@
             this.btnNovaAnalise.TabIndex = 3;
             this.btnNovaAnalise.Text = "Nova Análise";
             this.btnNovaAnalise.UseVisualStyleBackColor = false;
-            this.btnNovaAnalise.Click += new System.EventHandler(this.btnNovaAnalise_Click);
+            this.btnNovaAnalise.Click += new System.EventHandler(this.BtnNovaAnalise_Click);
             // 
             // btnPlay
             // 
@@ -349,8 +349,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblNomeAudio);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.axWindowsMediaPlayer2);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.playerAudio);
+            this.Controls.Add(this.playerVideo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Menu";
@@ -358,8 +358,8 @@
             this.Text = "Geometricamente - Análise";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Menu_FormClosing);
             this.Load += new System.EventHandler(this.Menu_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerAudio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGabarito)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnReverse)).EndInit();
@@ -373,8 +373,8 @@
 
         #endregion
 
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
+        private AxWMPLib.AxWindowsMediaPlayer playerVideo;
+        private AxWMPLib.AxWindowsMediaPlayer playerAudio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNomeAudio;
         private System.Windows.Forms.Label lblNomeVideo;
