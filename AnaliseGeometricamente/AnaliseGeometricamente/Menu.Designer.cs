@@ -50,6 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblNomeImagem = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAjuda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.playerVideo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerAudio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGabarito)).BeginInit();
@@ -330,12 +331,26 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Imagem:";
             // 
+            // btnAjuda
+            // 
+            this.btnAjuda.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnAjuda.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjuda.ForeColor = System.Drawing.Color.White;
+            this.btnAjuda.Location = new System.Drawing.Point(5, 8);
+            this.btnAjuda.Name = "btnAjuda";
+            this.btnAjuda.Size = new System.Drawing.Size(66, 31);
+            this.btnAjuda.TabIndex = 15;
+            this.btnAjuda.Text = "Sobre";
+            this.btnAjuda.UseVisualStyleBackColor = false;
+            this.btnAjuda.Click += new System.EventHandler(this.btnAjuda_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.btnAjuda);
             this.Controls.Add(this.lblNomeImagem);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -353,6 +368,7 @@
             this.Controls.Add(this.playerVideo);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Geometricamente - Análise";
@@ -394,6 +410,7 @@
         private System.Windows.Forms.PictureBox btnFastFoward;
         private System.Windows.Forms.PictureBox btnParar;
         private System.Windows.Forms.PictureBox btnReverse;
+        private System.Windows.Forms.Button btnAjuda;
     }
 }
 

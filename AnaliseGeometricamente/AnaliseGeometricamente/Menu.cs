@@ -125,45 +125,42 @@ namespace AnaliseGeometricamente
         bool pp;
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            ControleSimultaneo();
-
-
-
-            if (pp)
+            if (ControleSimultaneo())
             {
-                playerVideo.Ctlcontrols.play();
-                playerAudio.Ctlcontrols.play();
-                pp = false;
-                btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Pause.png");
-                btnPlay.BorderStyle = BorderStyle.Fixed3D;
+                if (pp)
+                {
+                    playerVideo.Ctlcontrols.play();
+                    playerAudio.Ctlcontrols.play();
+                    pp = false;
+                    btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Pause.png");
+                    btnPlay.BorderStyle = BorderStyle.Fixed3D;
 
+                }
+                else if (!pp)
+                {
+                    playerVideo.Ctlcontrols.pause();
+                    playerAudio.Ctlcontrols.pause();
+                    btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Play.png");
+                    pp = true;
+                    btnPlay.BorderStyle = BorderStyle.None;
+
+                }
+
+                //axWindowsMediaPlayer1.Ctlcontrols.play();
+                //axWindowsMediaPlayer2.Ctlcontrols.play();
             }
-            else if (!pp)
-            {
-                playerVideo.Ctlcontrols.pause();
-                playerAudio.Ctlcontrols.pause();
-                btnPlay.Image = Image.FromFile("C:\\AnaliseGeometricamente\\AnaliseGeometricamente\\imagens\\Play.png");
-                pp = true;
-                btnPlay.BorderStyle = BorderStyle.None;
 
-            }
-
-            //axWindowsMediaPlayer1.Ctlcontrols.play();
-            //axWindowsMediaPlayer2.Ctlcontrols.play();
         }
 
-        private void ControleSimultaneo()
+        private bool ControleSimultaneo()
         {
-            try { if (playerAudio.currentMedia.sourceURL == null) { } }
+            try { if (playerAudio.currentMedia.sourceURL == null || playerVideo.currentMedia.sourceURL == null) { } }
             catch (Exception)
             {
-                MessageBox.Show("Função Inválida!\n Arquivo de áudio (.mp3) não selecionado.");
+                MessageBox.Show("Função Inválida!\n Arquivo de áudio (.mp3) ou vídeo (.mp4) não selecionado.");
+                return false;
             }
-            try { if (playerVideo.currentMedia.sourceURL == null) { } }
-            catch (Exception)
-            {
-                MessageBox.Show("Função Inválida!\n Arquivo de vídeo (.mp4) não selecionado.");
-            }
+            return true;
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -207,7 +204,7 @@ namespace AnaliseGeometricamente
                 playerAudio.URL = ofd.FileName;
                 string[] split = ofd.FileName.Split('_');
                 lblNomeAudio.Text = split[3];
-                 //playerAudio.Ctlcontrols.stop();
+                //playerAudio.Ctlcontrols.stop();
             }
             btnAbreVideos.Enabled = true;
         }
@@ -235,6 +232,12 @@ namespace AnaliseGeometricamente
         {
             picGabarito.BackColor = Color.Transparent;
             picGabarito.BorderStyle = BorderStyle.None;
+        }
+
+        private void btnAjuda_Click(object sender, EventArgs e)
+        {
+            About ab = new About();
+            ab.ShowDialog();
         }
     }
 }

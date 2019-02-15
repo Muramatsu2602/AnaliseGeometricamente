@@ -54,8 +54,8 @@ namespace AnaliseGeometricamente
             String pastaOrigem = pasta;
             var filtros = new String[] { "jpg", "jpeg", "png", "gif", "tiff", "bmp" };
             var arquivos = GetArquivosDaPasta(pastaOrigem, filtros, false);
-            int l = 0;
-            int c = 0;
+            int l = 10;
+            int c = 10;
             for (int i = 0; i < arquivos.Length; i++)
             {
                 FileInfo arquivo = new FileInfo(arquivos[i]);
@@ -74,6 +74,8 @@ namespace AnaliseGeometricamente
                 };
                 panel3.Controls.Add(picture);
                 picture.Click += new EventHandler(AbreForm);
+                picture.MouseHover += new EventHandler(ImagemHover);
+                picture.MouseLeave += new EventHandler(ImagemMouseLeave);
 
                 if (c > (panel3.Size.Width - 400))
                 {
@@ -97,7 +99,21 @@ namespace AnaliseGeometricamente
 
         }
 
-        public  string[] GetArquivosDaPasta(String pastaRaiz, String[] filtros, bool isRecursiva)
+        public void ImagemHover(object sender, EventArgs e)
+        {
+            var imagem = (PictureBox)sender;
+            imagem.BorderStyle = BorderStyle.Fixed3D;
+            imagem.BackColor = Color.LightGray;
+        }
+
+        public void ImagemMouseLeave(object sender, EventArgs e)
+        {
+            var imagem = (PictureBox)sender;
+            imagem.BackColor = Color.White;
+            imagem.BorderStyle = BorderStyle.None;
+        }
+
+        public string[] GetArquivosDaPasta(String pastaRaiz, String[] filtros, bool isRecursiva)
         {
             List<String> arquivosEncontrados = new List<String>();
             SearchOption opcaoDeBusca = isRecursiva ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly;
