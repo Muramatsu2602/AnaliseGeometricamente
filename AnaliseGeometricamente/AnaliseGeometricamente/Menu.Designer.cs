@@ -303,7 +303,7 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Blue;
-            this.label4.Location = new System.Drawing.Point(-1, 2);
+            this.label4.Location = new System.Drawing.Point(0, 2);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(1013, 39);
             this.label4.TabIndex = 12;
@@ -336,9 +336,9 @@
             this.btnAjuda.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnAjuda.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.ForeColor = System.Drawing.Color.White;
-            this.btnAjuda.Location = new System.Drawing.Point(5, 8);
+            this.btnAjuda.Location = new System.Drawing.Point(12, 5);
             this.btnAjuda.Name = "btnAjuda";
-            this.btnAjuda.Size = new System.Drawing.Size(66, 31);
+            this.btnAjuda.Size = new System.Drawing.Size(64, 26);
             this.btnAjuda.TabIndex = 15;
             this.btnAjuda.Text = "Sobre";
             this.btnAjuda.UseVisualStyleBackColor = false;

@@ -126,7 +126,7 @@ namespace AnaliseGeometricamente
             }
             catch (DirectoryNotFoundException ex)
             {
-                MessageBox.Show("A pasta Imagens não fora encontrada no local padrão! Mais detalhes \n" + ex.Message);
+                //MessageBox.Show("A pasta Imagens não fora encontrada no local padrão! Mais detalhes \n" + ex.Message);
                 btnSelecionarPasta.PerformClick();
             }
             return arquivosEncontrados.ToArray();
