@@ -29,7 +29,9 @@ namespace AnaliseGeometricamente
 
         private void Menu_Load(object sender, EventArgs e)
         {
-
+            this.Height = Screen.PrimaryScreen.Bounds.Height-50;
+            this.Width = Screen.PrimaryScreen.Bounds.Width-20;
+            this.SetDesktopLocation(10, 10);
         }
 
         private void button1_Click(object sender, EventArgs e)
